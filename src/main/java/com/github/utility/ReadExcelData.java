@@ -207,16 +207,11 @@ public class ReadExcelData {
 			fis.close();
 
 			System.out.println("helhloe");
-
-
-
-
 		}catch(Exception eererer){
 			eererer.printStackTrace();
 		}finally{
 			System.out.println("it will run anyhow");
 		}
 	}
-
 
 }
