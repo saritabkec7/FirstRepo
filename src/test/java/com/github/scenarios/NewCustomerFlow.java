@@ -10,9 +10,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.github.pageObjects.DeviceListPage;
+import com.github.pageObjects.HomePage;
 import com.github.utility.ReadExcelData;
 
 public class NewCustomerFlow {
@@ -34,9 +37,13 @@ public class NewCustomerFlow {
 
 	@Test(priority=0)
 	public void SelectPostpaidPlan(){
-
-		WebElement we = wd.findElements(By.xpath("//h4[text()='Cell phones']")).get(0);
-		we.click();
+		HomePage homePage = new HomePage(wd);
+		homePage.clickOnCellPhones();
+		
+		DeviceListPage deviceLstPage = new DeviceListPage(wd);
+		Assert.assertTrue(deviceLstPage.verifyDeviceListPage(), "device list page not found");
+		Assert.assertTrue(deviceLstPage.selectDevice(), "device not selected");
+		
 		wait.until(ExpectedConditions.visibilityOf(wd.findElements(By.xpath("//a[@data-sku ='sku8510273']")).get(0)));
 		wd.findElements(By.xpath("//a[@data-sku ='sku8510273']")).get(0).click();
 		wd.findElement(By.xpath("//a[contains(text(), 'Check availability')]")).click();
