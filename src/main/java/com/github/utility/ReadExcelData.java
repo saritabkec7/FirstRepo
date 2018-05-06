@@ -185,7 +185,9 @@ public class ReadExcelData {
 		}
 	}
 
-
+	/**
+	 * Reading the data
+	 */
 	private static void readData() {
 		try{
 			FileInputStream fis = new FileInputStream(new File("resources/testData.xlsx"));
