@@ -184,12 +184,9 @@ public class ReadExcelData {
 			System.out.println("it will run anyhow");
 		}
 	}
-	
+
 	/**
 	 * Reading the data
-	 */
-	/**
-	 * Reads Data
 	 */
 	private static void readData() {
 		try{
@@ -203,6 +200,7 @@ public class ReadExcelData {
 				int columnCount = row.getPhysicalNumberOfCells(); // return no of columns
 				for(int j =0; j <columnCount; j++){
 					Cell  c = row.getCell(j);
+					System.out.println((Object)c);
 					lst.add(c);
 				}
 			}
